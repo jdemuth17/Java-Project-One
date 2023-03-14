@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View_Controller.Main_ScreenController">
+    <Button fx:id="ExitProgram" layoutX="1094.0" layoutY="459.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onactionExit" prefHeight="26.0" prefWidth="42.0" text="Exit" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="85.0">
+        <font>
+            <Font name="System Bold" size="12.0" />
+        </font>
+    </Button>
+    <Label layoutX="20.0" layoutY="14.0" prefHeight="42.0" prefWidth="318.0" text="Inventory Management System" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+        <font>
+            <Font name="System Bold" size="18.0" />
+        </font>
+    </Label>
+    <HBox AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="64.60000000000002">
+        <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+            <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="332.0" prefWidth="620.0">
+                <top>
+                    <HBox prefHeight="37.0" prefWidth="550.0" BorderPane.alignment="CENTER">
+                        <Label prefHeight="26.0" prefWidth="51.0" text="Parts">
+                            <HBox.margin>
+                                <Insets left="20.0" top="10.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="PartSearch" alignment="TOP_LEFT" onKeyTyped="#updateSearch" promptText="Search by Part ID or Name">
+                            <HBox.margin>
+                                <Insets left="310.0" top="10.0" />
+                            </HBox.margin>
+                        </TextField>
+                    </HBox>
+                </top>
+                <center>
+                    <TableView fx:id="PartTable" prefHeight="208.0" prefWidth="540.0" BorderPane.alignment="CENTER">
+                        <columns>
+                            <TableColumn fx:id="PartIDCol" prefWidth="125.0" text="Part ID" />
+                            <TableColumn fx:id="PartNameCol" prefWidth="124.80004119873047" text="Part Name" />
+                            <TableColumn fx:id="PartInventoryLevelCol" prefWidth="119.20001220703125" text="Inventory Level" />
+                            <TableColumn fx:id="PartPriceCol" prefWidth="164.0" text="Price/Cost per Unit" />
+                        </columns>
+                        <BorderPane.margin>
+                            <Insets left="10.0" right="10.0" />
+                        </BorderPane.margin>
+                    </TableView>
+                </center>
+                <bottom>
+                    <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                        <buttons>
+                            <Button fx:id="addPart" mnemonicParsing="false" onAction="#onactionAddPart" text="Add">
+                                <font>
+                                    <Font name="System Bold" size="12.0" />
+                                </font>
+                            </Button>
+                            <Button fx:id="ModifyPart" mnemonicParsing="false" onAction="#onactionModifyPart" text="Modify">
+                                <font>
+                                    <Font name="System Bold" size="12.0" />
+                                </font>
+                            </Button>
+                            <Button fx:id="DeletePart" mnemonicParsing="false" onAction="#onactionDeletePart" text="Delete">
+                                <font>
+                                    <Font name="System Bold" size="12.0" />
+                                </font>
+                            </Button>
+                        </buttons>
+                        <BorderPane.margin>
+                            <Insets right="20.0" />
+                        </BorderPane.margin>
+                    </ButtonBar>
+                </bottom>
+            </BorderPane>
+        </HBox>
+        <HBox>
+            <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="332.0" prefWidth="620.0">
+                <top>
+                    <HBox prefHeight="37.0" prefWidth="550.0" BorderPane.alignment="CENTER">
+                        <Label prefHeight="26.0" prefWidth="80.0" text="Products">
+                            <HBox.margin>
+                                <Insets left="20.0" top="10.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="ProductSearch" alignment="TOP_LEFT" onKeyPressed="#ProductSearch" promptText="Search by Product ID or Name">
+                            <HBox.margin>
+                                <Insets left="279.0" top="10.0" />
+                            </HBox.margin>
+                        </TextField>
+                    </HBox>
+                </top>
+                <center>
+                    <TableView fx:id="ProductTable" prefHeight="208.0" prefWidth="540.0" BorderPane.alignment="CENTER">
+                        <columns>
+                            <TableColumn fx:id="ProductIDCol" prefWidth="125.0" text="Product ID" />
+                            <TableColumn fx:id="ProductNameCol" prefWidth="124.80004119873047" text="Product Name" />
+                            <TableColumn fx:id="ProductInventoryCol" prefWidth="119.20001220703125" text="Inventory Level" />
+                            <TableColumn fx:id="ProductPriceCol" prefWidth="164.0" text="Price/Cost per Unit" />
+                        </columns>
+                        <BorderPane.margin>
+                            <Insets left="10.0" right="10.0" />
+                        </BorderPane.margin>
+                    </TableView>
+                </center>
+                <bottom>
+                    <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                        <buttons>
+                            <Button fx:id="addProduct" mnemonicParsing="false" onAction="#onactionAddProduct" text="Add">
+                                <font>
+                                    <Font name="System Bold" size="12.0" />
+                                </font>
+                            </Button>
+                            <Button fx:id="ModifyProduct" mnemonicParsing="false" onAction="#onactionModifyProduct" text="Modify">
+                                <font>
+                                    <Font name="System Bold" size="12.0" />
+                                </font>
+                            </Button>
+                            <Button fx:id="DeleteProduct" mnemonicParsing="false" onAction="#onactionDeleteProduct" text="Delete">
+                                <font>
+                                    <Font name="System Bold" size="12.0" />
+                                </font>
+                            </Button>
+                        </buttons>
+                        <BorderPane.margin>
+                            <Insets right="20.0" />
+                        </BorderPane.margin>
+                    </ButtonBar>
+                </bottom>
+            </BorderPane>
+        </HBox>
+    </HBox>
+</AnchorPane>
